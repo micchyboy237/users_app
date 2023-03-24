@@ -20,5 +20,4 @@ const styles = StyleSheet.create({
   },
 });
 
-// allow reactotron overlay for fast design in dev mode
 export default App;

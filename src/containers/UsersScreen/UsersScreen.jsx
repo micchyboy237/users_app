@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -26,9 +26,15 @@ const UsersScreen = (props) => {
         )}
         ListFooterComponent={() =>
           usersQuery.loading ? (
-            <ActivityIndicator animating={true} size="small" />
+            <ActivityIndicator
+              style={styles.loader}
+              animating={true}
+              size="small"
+            />
           ) : (
-            !usersQuery.data?.length && <Text>No results found</Text>
+            !usersQuery.data?.length && (
+              <Text style={styles.emptyMessage}>No results found</Text>
+            )
           )
         }
       />
@@ -39,6 +45,13 @@ const UsersScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  loader: {
+    marginTop: '10%',
+  },
+  emptyMessage: {
+    marginTop: '10%',
+    textAlign: 'center',
   },
 });
 
